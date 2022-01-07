@@ -153,7 +153,7 @@ function ArmourSetsPage(props) {
         setIsLoading(true);
         console.log("fetching");
         fetch(
-            'http://localhost:4000/api/v1/armoursets'
+            'https://mhrise-app-backend.herokuapp.com/api/v1/armoursets'
         ).then(response => {
             console.log("waiting for response")
             console.log(response)
