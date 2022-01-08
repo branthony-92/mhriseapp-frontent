@@ -161,6 +161,7 @@ function ArmourSetsPage(props) {
         }).then(data => {
             console.log("reading data")
             setIsLoading(false)
+            console.log(data.message_body)
             setLoadedArmour(data.message_body)
         });
     }, []);
