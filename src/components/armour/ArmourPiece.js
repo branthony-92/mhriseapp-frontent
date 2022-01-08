@@ -22,7 +22,7 @@ function ArmourPiece(props) {
             </Card>
         );
     } else {
-        return <div/>
+        return <div>--</div>
     }
 
 }
