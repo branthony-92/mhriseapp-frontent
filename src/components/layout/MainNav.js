@@ -12,7 +12,10 @@ function MainNav() {
                     <Link to='/'>Home</Link>
                 </li>
                 <li>
-                    <Link to='/armour-sets'>View Armour Sets</Link>
+                    <Link to='/armour-sets'>Armour Sets</Link>
+                </li>
+                <li>
+                    <Link to='/skills'>Skills</Link>
                 </li>
             </ul>
         </nav>

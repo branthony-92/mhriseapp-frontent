@@ -9,7 +9,16 @@ function ArmourStats(props) {
                 <p>Water Res: <b>{props.info.water_res}</b></p>            
                 <p>Thunder Res: <b>{props.info.thunder_res}</b></p>            
                 <p>Ice Res: <b>{props.info.ice_res}</b></p>             
-                <p>Dragon Res: <b>{props.info.dragon_res}</b></p>       
+                <p>Dragon Res: <b>{props.info.dragon_res}</b></p> 
+                <h4>Skills</h4>
+                <hr/>
+                <ul>
+                    {props.info.skills.map((skill =>
+                        <li>
+                            <b>{skill.name}:</b> Level {skill.level}
+                        </li>
+                    ))}
+                </ul>      
             </section>
         </div>
     )
