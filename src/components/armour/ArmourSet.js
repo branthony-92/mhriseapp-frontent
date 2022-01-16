@@ -22,6 +22,7 @@ function ArmourSet(props) {
     }
 
     function handleSelect(data) {
+        if (data == null) return
         setPieceData(data)
     }
 

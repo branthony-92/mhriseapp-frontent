@@ -10,8 +10,8 @@ function ArmourPiece(props) {
     }
 
     return (
-        <Card onClick={handleToggleStats}>
-            <Card.Img src={props.img}/>
+        <Card onClick={handleToggleStats} style={{height: 75, width: 75}}>
+            {props.info && <Card.Img src={props.img}/>}
         </Card>
     );
 }
