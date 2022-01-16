@@ -3,7 +3,6 @@ import ArmourSet from "./ArmourSet";
 function ArmourList(props) {
     return (
         <div className="flex-grow-1 overdflow-auto">
-            <ul>
                 {props.armourSets.map((set =>
                     <ArmourSet  
                     key={set.key}    
@@ -15,7 +14,6 @@ function ArmourList(props) {
                     greaves={set.greaves}
                     /> 
                 ))}
-            </ul>
         </div>
     );
 }

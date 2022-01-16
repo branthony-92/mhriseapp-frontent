@@ -2,8 +2,8 @@ import SkillItem from "./SkillItem";
 
 function SkillList(props) {
     return (
-        <ul>
-           {props.skills.map((skill =>
+        <div>
+            {props.skills.map((skill =>
                 <SkillItem  
                     key={skill.key}    
                     name={skill.skill_name}       
@@ -12,7 +12,7 @@ function SkillList(props) {
                     skillLevels={skill.skill_levels}
                 /> 
             ))} 
-        </ul>
+        </div>
     );
 }
 

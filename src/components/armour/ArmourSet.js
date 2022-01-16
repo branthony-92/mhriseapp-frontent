@@ -81,10 +81,8 @@ function ArmourSet(props) {
 
    
     return (
-
-        <li key={props.key}> 
-            <Card>
-                <Card.Title onClick={handleToggleStats}>{props.setName}</Card.Title> 
+            <Card onClick={handleToggleStats}>
+                <Card.Title >{props.setName}</Card.Title> 
                 <Card.Body>
 
                     {showStates && <ArmourSetSummary key={props.key} info={generateStateSummary(props)} />}
@@ -112,7 +110,6 @@ function ArmourSet(props) {
                     {showStates && <ArmourStats info={pieceData}/>}
                 </Card.Body>
             </Card>
-        </li>
     );
 }
 

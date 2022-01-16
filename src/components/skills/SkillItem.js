@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Card from "../ui/Card";
+import Card from "react-bootstrap/Card"
 import SkillLevels from "./SkillLevels";
 
 function SkillItem(props) {
@@ -10,14 +10,14 @@ function SkillItem(props) {
         setShowStates(!showStates)
     }
     return (
-        <li key={props.key}> 
-            <Card>
-                <h2 onClick={handleToggleStats}>{props.name}</h2>
-                {showStates && <hr/>}
-                {showStates && <p><b>{props.description}</b></p>}
-                {showStates && <SkillLevels levels={props.skillLevels} />}
+            <Card onClick={handleToggleStats}>
+                <Card.Title>{props.name}</Card.Title >
+                <Card.Body>
+                    {showStates && <hr/>}
+                    {showStates && <p><b>{props.description}</b></p>}
+                    {showStates && <SkillLevels levels={props.skillLevels} />}
+                </Card.Body>
             </Card>
-        </li>
     );
 }
 
