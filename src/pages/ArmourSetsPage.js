@@ -174,9 +174,9 @@ function ArmourSetsPage(props) {
         );
     }
     return (
-        <section>
+        <div className="d-flex">
             <ArmourList armourSets={loadedArmour}/>
-        </section>
+        </div>
     );
 }
 

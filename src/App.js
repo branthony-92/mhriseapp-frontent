@@ -3,6 +3,7 @@ import HomePage from './pages/HomePage';
 import ArmourSetsPage from './pages/ArmourSetsPage';
 import Layout from './components/layout/Layout';
 import SkillsPage from './pages/SkillsPage';
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 function App() {
   return (

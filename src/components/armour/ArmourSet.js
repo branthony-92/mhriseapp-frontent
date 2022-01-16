@@ -1,21 +1,28 @@
 import { useState } from "react";
-import Card from "../ui/Card";
+import Card from "react-bootstrap/Card";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 import ArmourPiece from "./ArmourPiece";
 import ArmourSetSummary from "./ArmourSetSummary";
 import ArmourStats from "./ArmourStats";
 
-const helmImgURL = "https://fanonmonsterhunter.fandom.com/wiki/Armor_Icons?file=Helmet_Icon_White.png";
-const mailImgURL = "https://fanonmonsterhunter.fandom.com/wiki/Armor_Icons?file=Chest_Icon_White.png";
-const vambracesImgURL = "https://fanonmonsterhunter.fandom.com/wiki/Armor_Icons?file=Arm_Icon_White.png";
-const coilImgURL = "https://fanonmonsterhunter.fandom.com/wiki/Armor_Icons?file=Waist_Icon_White.png";
-const gravesImgURL = "https://fanonmonsterhunter.fandom.com/wiki/Armor_Icons?file=Leg_Icon_White.png";
+import helmImgURL from "./icons/icon_helm.png";
+import mailImgURL from "./icons/icon_mail.png";
+import vambracesImgURL from "./icons/icon_arms.png";
+import coilImgURL from "./icons/icon_coil.png";
+import gravesImgURL from "./icons/icon_legs.png";
 
 function ArmourSet(props) {
     const [ showStates, setShowStates ] = useState(false);
+    const [ pieceData, setPieceData ] = useState(props.helm)
 
     function handleToggleStats() {
         console.log("clicked")
         setShowStates(!showStates)
+    }
+
+    function handleSelect(data) {
+        setPieceData(data)
     }
 
     function generateStateSummary(set) {
@@ -71,16 +78,38 @@ function ArmourSet(props) {
         return stats;
     }
 
+   
     return (
+
         <li key={props.key}> 
             <Card>
-                <h2 onClick={handleToggleStats}>{props.setName}</h2>
-                {showStates && <ArmourSetSummary key={props.key} info={generateStateSummary(props)}/>}
-                {showStates && <ArmourPiece key={props.key} img={helmImgURL} info={props.helm}/>}
-                {showStates && <ArmourPiece key={props.key} img={mailImgURL} info={props.mail} />}
-                {showStates && <ArmourPiece key={props.key} img={vambracesImgURL} info={props.vambraces} />}
-                {showStates && <ArmourPiece key={props.key} img={coilImgURL} info={props.coil} />}
-                {showStates && <ArmourPiece key={props.key} img={gravesImgURL} info={props.greaves} />}
+                <Card.Title onClick={handleToggleStats}>{props.setName}</Card.Title> 
+                <Card.Body>
+
+                    {showStates && <ArmourSetSummary key={props.key} info={generateStateSummary(props)} />}
+                    <Row>
+                        <Col>
+                            {showStates && <ArmourPiece onSelect={handleSelect} key={props.key} img={helmImgURL} info={props.helm}/>}
+                        </Col>
+                        
+                        <Col>
+                            {showStates && <ArmourPiece onSelect={handleSelect} key={props.key} img={mailImgURL} info={props.mail}/>}
+                        </Col>
+                        
+                        <Col>
+                            {showStates && <ArmourPiece onSelect={handleSelect} key={props.key} img={vambracesImgURL} info={props.vambraces} />}
+                        </Col>
+                        
+                        <Col>
+                            {showStates && <ArmourPiece onSelect={handleSelect} key={props.key} img={coilImgURL} info={props.coil} /> }
+                        </Col>
+                        
+                        <Col>
+                            {showStates && <ArmourPiece onSelect={handleSelect} key={props.key} img={gravesImgURL} info={props.greaves} />}
+                        </Col>
+                    </Row>
+                    {showStates && <ArmourStats info={pieceData}/>}
+                </Card.Body>
             </Card>
         </li>
     );
